@@ -1,0 +1,325 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+
+:root {
+  --color-bg-primary: #FCFCFC; /* Quase branco puro */
+  --color-bg-secondary: #EBEBEB; /* Cinza claro para áreas neutras */
+  --color-bg-dark: #1A1A1A; /* Preto rico */
+  --color-bg-header: transparent; /* A noiva mandou, tá mandado! Branco/Transparente */
+  
+  --color-text-main: #111111; /* Preto para leitura */
+  --color-text-light: #666666; /* Cinza para textos secundários */
+  --color-text-inverse: #FFFFFF; /* Branco para fundos escuros */
+
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Montserrat', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-main);
+  line-height: 1.8;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Typography Base */
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  color: var(--color-text-main);
+}
+
+.text-sm-spaced {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: 400;
+}
+
+/* Layout Utilities */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+.section-spacing {
+  padding: 8rem 0;
+}
+
+.text-center { text-align: center; }
+
+/* Header & Nav */
+.header {
+  padding: 1rem 0;
+  background-color: rgba(252, 252, 252, 0.9); /* Branco transparente para ler o texto ao rolar */
+  backdrop-filter: blur(10px); /* Efeito de vidro opaco luxuoso */
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.nav-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  color: var(--color-text-main);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 3rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--color-text-main);
+  transition: opacity 0.3s;
+}
+.nav-links a:hover { opacity: 0.5; }
+
+/* Hero Section */
+.hero {
+  padding: 10rem 0 6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-names {
+  font-size: 5rem;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.hero-date {
+  font-size: 1.2rem;
+  margin-bottom: 4rem;
+}
+
+/* Editorial Image Placeholders */
+.parallax-container {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-bg-secondary);
+}
+
+.placeholder-inner {
+  position: absolute;
+  top: -20%;
+  left: 0;
+  width: 100%;
+  height: 140%; /* Maior que o container para permitir parallax */
+  background-color: #E2E2E2; /* Cor sólida levemente mais escura para o pseudo-parallax placeholder */
+}
+
+/* Pseudo-element do texto de placeholder precisa ficar no container, não na imagem movida */
+.parallax-container::after {
+  content: "IMAGEM AQUI";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--color-text-light);
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Hero Carousel / Image Grid */
+.hero-images {
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.hero-img-main {
+  width: 400px;
+  height: 550px;
+  object-fit: cover;
+}
+
+.hero-img-side {
+  width: 250px;
+  height: 350px;
+  margin-top: 100px;
+}
+
+/* Story Section */
+.story-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.story-title {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+.story-text {
+  font-size: 1rem;
+  color: var(--color-text-light);
+  margin-bottom: 1.5rem;
+}
+
+/* Save the Date / Video Section */
+.video-section {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-inverse);
+  padding: 8rem 0;
+}
+
+.video-section h2 {
+  color: var(--color-text-inverse);
+  font-size: 3rem;
+  margin-bottom: 3rem;
+}
+
+.video-container {
+  max-width: 900px;
+  margin: 0 auto;
+  aspect-ratio: 16/9;
+  background-color: #000;
+  border: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-container span {
+  font-family: var(--font-sans);
+  letter-spacing: 0.1em;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.5);
+}
+
+/* Event Location & Map */
+.event-location {
+  margin-top: 6rem;
+}
+
+.map-link-block {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+  padding: 2rem 3rem;
+  border: 1px solid rgba(255,255,255,0.2);
+  color: var(--color-text-inverse);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  background: rgba(255,255,255,0.02);
+}
+
+.map-link-block:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.5);
+  transform: translateY(-5px);
+}
+
+.map-doodle {
+  margin-bottom: 1rem;
+  opacity: 0.8;
+}
+
+/* Gallery Masonry Grid */
+.masonry-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-auto-rows: 250px;
+  gap: 1.5rem;
+}
+
+.masonry-item {
+  width: 100%;
+  height: 100%;
+}
+
+.masonry-tall {
+  grid-row: span 2;
+}
+
+.masonry-wide {
+  grid-column: span 2;
+}
+
+.masonry-square {
+  grid-row: span 1;
+}
+
+/* RSVP / Action Section */
+.rsvp-wrapper {
+  max-width: 500px;
+  margin: 0 auto;
+  border: 1px solid rgba(0,0,0,0.1);
+  padding: 4rem 2rem;
+}
+
+.btn-editorial {
+  display: inline-block;
+  background: transparent;
+  border: 1px solid var(--color-text-main);
+  color: var(--color-text-main);
+  padding: 1rem 3rem;
+  text-decoration: none;
+  margin-top: 2rem;
+  transition: all 0.3s ease;
+}
+
+.btn-editorial:hover {
+  background: var(--color-text-main);
+  color: var(--color-text-inverse);
+}
+
+/* Footer */
+.footer {
+  padding: 1.5rem 0;
+  border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+/* GSAP Initial States */
+.reveal-text {
+  visibility: hidden;
+  opacity: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-names { font-size: 3.5rem; }
+  .hero-images { flex-direction: column; align-items: center; }
+  .hero-img-side { margin-top: 0; width: 100%; height: auto; aspect-ratio: 3/4; }
+  .hero-img-main { width: 100%; height: auto; aspect-ratio: 3/4; }
+  .nav-links { display: none; /* Em um projeto real, adicionar menu hamburger */ }
+  .masonry-wide { grid-column: span 1; } /* Desabilita largura dupla no mobile */
+}
