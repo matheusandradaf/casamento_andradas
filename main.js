@@ -133,3 +133,35 @@ if (countdownElement) {
   updateCountdown(); // Call immediately
   setInterval(updateCountdown, 1000); // Update every second
 }
+
+// --- MENU SANDUÍCHE MOBILE ---
+const menuToggle = document.getElementById('menuToggle');
+const navMenu = document.getElementById('navMenu');
+const bodyElement = document.body;
+
+if (menuToggle && navMenu) {
+  const toggleMenu = () => {
+    const isActive = menuToggle.classList.toggle('active');
+    navMenu.classList.toggle('active');
+    
+    // Evita rolagem da página quando o menu mobile está aberto
+    if (isActive) {
+      bodyElement.style.overflow = 'hidden';
+    } else {
+      bodyElement.style.overflow = '';
+    }
+  };
+
+  menuToggle.addEventListener('click', toggleMenu);
+
+  // Fecha o menu ao clicar em qualquer link de navegação
+  const navLinks = navMenu.querySelectorAll('a');
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      menuToggle.classList.remove('active');
+      navMenu.classList.remove('active');
+      bodyElement.style.overflow = '';
+    });
+  });
+}
+
