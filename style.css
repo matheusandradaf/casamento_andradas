@@ -323,11 +323,22 @@ h1, h2, h3, h4 {
 }
 
 /* RSVP / Action Section */
-.rsvp-wrapper {
+.rsvp-wrapper,
+.registry-wrapper {
   max-width: 500px;
   margin: 0 auto;
   border: 1px solid rgba(0,0,0,0.1);
   padding: 4rem 2rem;
+}
+
+.rsvp-wrapper .story-title,
+.registry-wrapper .story-title {
+  white-space: normal;
+  line-height: 1.3;
+}
+
+.mobile-break {
+  display: none;
 }
 
 .btn-editorial {
@@ -504,9 +515,14 @@ h1, h2, h3, h4 {
   }
 
   /* RSVP e Presentes */
-  .rsvp-wrapper {
+  .rsvp-wrapper,
+  .registry-wrapper {
     padding: 3rem 1.5rem;
     width: 90%;
+  }
+
+  .mobile-break {
+    display: block;
   }
 
   /* Galeria Masonry Mobile (Transformação em coluna única perfeita) */
