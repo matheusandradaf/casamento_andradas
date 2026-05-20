@@ -88,18 +88,22 @@ h1, h2, h3, h4 {
   letter-spacing: 0.05em;
   text-decoration: none;
   color: var(--color-text-main);
+  white-space: nowrap; /* Evita que o logotipo quebre de linha */
 }
 
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 3rem;
+  gap: 1.5rem; /* Ajustado para dar mais folga horizontal */
 }
 
 .nav-links a {
   text-decoration: none;
   color: var(--color-text-main);
+  font-size: 0.65rem; /* Diminuído para dar destaque ao logotipo Amandha & Matheus */
+  letter-spacing: 0.15em; /* Ajuste sutil do espaçamento */
   transition: opacity 0.3s;
+  white-space: nowrap; /* Evita quebra de linha nas palavras do menu */
 }
 .nav-links a:hover { opacity: 0.5; }
 
@@ -130,28 +134,22 @@ h1, h2, h3, h4 {
   background-color: var(--color-bg-secondary);
 }
 
-.placeholder-inner {
+.parallax-img {
   position: absolute;
   top: -20%;
   left: 0;
   width: 100%;
   height: 140%; /* Maior que o container para permitir parallax */
-  background-color: #E2E2E2; /* Cor sólida levemente mais escura para o pseudo-parallax placeholder */
+  object-fit: cover;
 }
 
-/* Pseudo-element do texto de placeholder precisa ficar no container, não na imagem movida */
-.parallax-container::after {
-  content: "IMAGEM AQUI";
+.placeholder-inner {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-family: var(--font-sans);
-  font-size: 0.7rem;
-  letter-spacing: 0.1em;
-  color: var(--color-text-light);
-  z-index: 10;
-  pointer-events: none;
+  top: -20%;
+  left: 0;
+  width: 100%;
+  height: 140%;
+  background-color: #E2E2E2;
 }
 
 /* Hero Carousel / Image Grid */
@@ -167,12 +165,18 @@ h1, h2, h3, h4 {
   width: 400px;
   height: 550px;
   object-fit: cover;
+  border-radius: 12px; /* Cantos levemente arredondados */
+}
+
+.hero-img-main .parallax-img {
+  object-position: 30% 25%; /* Move a imagem horizontalmente e verticalmente para focar perfeitamente nas cabeças e corpo do casal */
 }
 
 .hero-img-side {
   width: 250px;
   height: 350px;
   margin-top: 100px;
+  border-radius: 12px; /* Cantos levemente arredondados */
 }
 
 /* Story Section */
@@ -182,8 +186,9 @@ h1, h2, h3, h4 {
 }
 
 .story-title {
-  font-size: 3rem;
+  font-size: clamp(2rem, 6vw, 3rem); /* Responsivo para telas menores */
   margin-bottom: 2rem;
+  white-space: nowrap; /* Impede que 'Nossa História' quebre linha de uma palavra para a outra */
 }
 
 .story-text {
@@ -315,6 +320,19 @@ h1, h2, h3, h4 {
 }
 
 /* Responsive */
+@media (min-width: 769px) and (max-width: 1100px) {
+  .logo {
+    font-size: 1.2rem;
+  }
+  .nav-links {
+    gap: 0.8rem;
+  }
+  .nav-links a {
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+  }
+}
+
 @media (max-width: 768px) {
   .hero-names { font-size: 3.5rem; }
   .hero-images { flex-direction: column; align-items: center; }
