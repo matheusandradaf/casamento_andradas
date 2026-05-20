@@ -551,4 +551,8 @@ h1, h2, h3, h4 {
     grid-row: span 1 !important;
     grid-column: span 1 !important;
   }
+
+  .hide-on-mobile {
+    display: none !important;
+  }
 }
