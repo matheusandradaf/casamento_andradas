@@ -182,6 +182,10 @@ h1, h2, h3, h4 {
   object-fit: cover;
 }
 
+.focus-top {
+  object-position: center 15% !important;
+}
+
 .placeholder-inner {
   position: absolute;
   top: -20%;
